@@ -1,0 +1,6 @@
+main = dialog[TITLE="IUP example", SIZE=HALFxHALF](
+	hbox(
+		label("This is an example of a cross-platform application based on the IUP GUI library."),
+		button("About...", "")
+	)
+)

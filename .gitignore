@@ -1,0 +1,6 @@
+build/
+lib/
+tools/
+gui-compiled.c
+res/resources.res
+*~
