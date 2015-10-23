@@ -1,5 +1,6 @@
 language: c
 
+sudo: required
 before-install: sudo ./get-packages.sh
 install: ./get-libs.sh
 script: make
