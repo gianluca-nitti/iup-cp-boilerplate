@@ -1,6 +1,6 @@
 language: c
-
 sudo: required
+dist: trusty
 install:
 - sudo ./get-packages.sh
 - ./get-libs.sh
