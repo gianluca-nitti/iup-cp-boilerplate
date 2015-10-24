@@ -4,4 +4,4 @@ sudo: required
 install:
 - sudo ./get-packages.sh
 - ./get-libs.sh
-script: make
+script: make win32 linux64

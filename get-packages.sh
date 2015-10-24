@@ -8,4 +8,4 @@ apt-get install -y atool            # Tool to automate extraction of tar and zip
 apt-get install -y mingw-w64        # To cross compile for Windows
 apt-get install -y libc6-dev-i386   # To cross compile for Linux x86 from linux x86_64.
 apt-get install -y libgtk2.0-dev    # Gtk dev library.
-apt-get install -y libgtk2.0-0:i386 # Required for Gtk cross compilation.
+# apt-get install -y libgtk2.0-0:i386 # Required for Gtk cross compilation.
