@@ -18,17 +18,17 @@ Here is a simple step-by-step guide to set up an IUP-based application using thi
 
 - Put the files from this repository into an empty directory. If you are seting up a new application you probably don't want to push your files back to this repository, so you may just download and extract a tarball or clone the repository and the delete the .git folder.
 - From your terminal run in that directory:
-    ```bash
+    ```
     sudo ./get-packages.sh
     ```
     sudo is required to install packages to your machine with APT. This will probably take a while since these development packages aren't exactly lightweight.
 - Then, run
-    ```bash
+    ```
     ./get-libs.sh
     ```
     this will download and extract IUP libraries and tools to the lib/ and tools/ subfolders.
 - You can now compile to all the target platforms by typing
-    ```bash
+    ```
     make
     ```
     the built binaries can be found in the build/linux64/, build/linux32, build/win32/ subfolders, together with the IUP library necessary at runtime.

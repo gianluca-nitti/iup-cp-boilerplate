@@ -3,6 +3,7 @@
 # Run this script to install the cross-compilers for Windows and the compiler libraries to compile for x86 linux from x86_64 linux.
 # This script needs to be run as superuser (use sudo ./get-packages)
 
+dpkg --add-architecture i386
 apt-get update
 apt-get install -y atool            # Tool to automate extraction of tar and zip archives, required the library download script.
 apt-get install -y mingw-w64        # To cross compile for Windows
