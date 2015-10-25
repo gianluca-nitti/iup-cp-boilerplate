@@ -2,6 +2,8 @@ language: c
 sudo: required
 dist: trusty
 install:
+- sudo add-apt-repository 'deb http://us.archive.ubuntu.com/ubuntu/ trusty-updates main restricted'
+- sudo add-apt-repository 'deb-src http://us.archive.ubuntu.com/ubuntu/ trusty-updates main restricted'
 - sudo ./get-packages.sh
 - ./get-libs.sh
-script: make win32 linux64
+script: make
