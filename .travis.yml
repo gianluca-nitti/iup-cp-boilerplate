@@ -2,7 +2,8 @@ language: c
 sudo: required
 dist: trusty
 install:
-- sudo add-apt-repository 'deb http://us.archive.ubuntu.com/ubuntu/ precise main'
+- sudo add-apt-repository 'deb http://us.archive.ubuntu.com/ubuntu/ trusty-updates/main i386'
+- sudo add-apt-repository 'deb http://us.archive.ubuntu.com/ubuntu/ trusty/main i386'
 - sudo ./get-packages.sh
 - ./get-libs.sh
 script: make
