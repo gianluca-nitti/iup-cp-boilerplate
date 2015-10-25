@@ -2,7 +2,8 @@ language: c
 sudo: required
 dist: trusty
 install:
-- sudo add-apt-repository 'deb http://us.archive.ubuntu.com/ubuntu/ trusty-updates main restricted'
+- echo 'deb http://us-central1.gce.archive.ubuntu.com/ubuntu/ trusty-backports main restricted universe multiverse' | sudo tee --append /etc/apt/sources.list
+- echo 'deb-src http://us-central1.gce.archive.ubuntu.com/ubuntu/ trusty-backports main restricted universe multiverse' | sudo tee --append /etc/apt/sources.list
 - sudo ./get-packages.sh
 - ./get-libs.sh
 script: make
