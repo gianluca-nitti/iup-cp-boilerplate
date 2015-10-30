@@ -1,4 +1,4 @@
-# IUP cross platform boilerplate
+# IUP cross platform boilerplate [![Build Status](https://travis-ci.org/gianluca-nitti/iup-cp-boilerplate.svg?branch=master)](https://travis-ci.org/gianluca-nitti/iup-cp-boilerplate)
 
 > IUP is a multi-platform toolkit for building graphical user interfaces.
 

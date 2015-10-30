@@ -1,0 +1,5 @@
+aboutDlg = dialog[TITLE="About", SIZE=QUARTERxQUARTER](
+	hbox(
+		label("This application boilerplate is based on the IUP library (http://webserver2.tecgraf.puc-rio.br/iup/).")
+	)
+)
