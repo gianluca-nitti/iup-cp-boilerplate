@@ -13,6 +13,10 @@ Out-of-the-box it allows you to build lightweight applications for Windows (32 b
 - For lightweight and standalone applications: your users won't need to install particular runtime environment since on IUP uses the Win32 API on Windows (which is part of the OS) and GTK on Linux (which is included in the majority of desktop distributions). IUP.so or IUP.dll (~1 MB) can be shipped with the application.
 - Continuos integration ready: built to work with [Travis-CI](https://travis-ci.org/).
 
+## Download latest CI build
+The code in this repository is built using the [Travis-CI](https://travis-ci.org/) continuos integration platform. You can download the last succesfully built version from here:
+https://www.cubbyusercontent.com/pl/ci-build.tar.gz/_c1d3e8dd5ed149f5895ad7edba61d221
+
 ## Tutorial
 Here is a simple step-by-step guide to set up an IUP-based application using this boilerplate. This assumes you are working on an x86_64 Linux system with the APT package manager available.
 

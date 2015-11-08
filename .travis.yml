@@ -2,8 +2,12 @@ language: c
 sudo: required
 dist: trusty
 install:
-- echo 'deb http://us-central1.gce.archive.ubuntu.com/ubuntu/ trusty-backports main restricted universe multiverse' | sudo tee --append /etc/apt/sources.list
-- echo 'deb-src http://us-central1.gce.archive.ubuntu.com/ubuntu/ trusty-backports main restricted universe multiverse' | sudo tee --append /etc/apt/sources.list
 - sudo ./get-packages.sh
 - ./get-libs.sh
 script: make
+after_success:
+- tar -zcvf ci-build.tar.gz build
+- curl $CURL_ARGS
+env:
+  global:
+    secure: 0Y935FweEGDy/5xMTA0n+aesEZWWKwO2Q4Fr6Q70NEkBq2piPYWMDBuKjHuELhTaEIn831e/fXUajzaUoTpVLPrX8y9SuDW0p/A+NvKyWk1f1DEYC6evqsfSzGVSjR0/LqxK5DQEOAotWkQW0/6cRzHlBtve8OcDxyYFKriUFfmhqLKciqPUSVIRzRMXhBCPY11he5ixWnZM93G8sRqsbKOS7B2REXGiYSFnxIGMo9+oL8IcqwMw94w6XyJO0SChQ7OiH9U9Xmzt2IhE1/c4IUT8M4YIZOvSRHqZ3PYl2qmq6VIEnMppN8ixb6aKke9P/jVd1/TnnsEGmzatrxq6++KLGnb4bjnBQkobWt4eUqIh8jxpTa3/QPvTLd1lciWzuKB1bT7/lS7xprKX+d0/ngbunhd7zI1ucVHSQxbzF3LwdXOX7sLzb0sgX0Y+wT0y7A35bCaejp1XFyiSRk1rwyhVuucZSUEB/5LHpZ/UgojpYS0KyJVrMhFMKAmsQ+407PJGa5FtJyiP/eSr+mQ7QKyo0wefA8r3GZai4YcYRr1eeuj3ZFxK524MSrgbfsnvhesM7MAgmK92xhVKz1ALHAqqRO8hiwprMI/G0s9C1B0gta3lA8kV+Zh3jeBdSfrucpmILzlKK3MlGD0ZoSIWrn/1eS5tr2PQIz8aajlV6EY=
