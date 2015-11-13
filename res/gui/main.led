@@ -1,6 +1,12 @@
-mainDlg = dialog[TITLE="IUP example"](
-	vbox[ALIGNMENT=ACENTER, MARGIN=100x100](
-		label("This is an example of a cross-platform application based on the IUP GUI library."),
-		about = button("About...", NULL)
+mainDlg = dialog[TITLE="IUP example", ALIGNMENT=ACENTER, MARGIN=10x10](
+	hbox[ALIGNMENT=ACENTER](
+		fill(),
+		vbox[ALIGNMENT=ACENTER](
+			fill(),
+			label("This is an example of a cross-platform application based on the IUP GUI library."),
+			about = button("About...", NULL),
+			fill()
+		),
+		fill()
 	)
 )
