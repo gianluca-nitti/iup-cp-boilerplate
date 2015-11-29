@@ -17,6 +17,13 @@ Out-of-the-box it allows you to build lightweight applications for Windows (32 b
 The code in this repository is built using the [Travis-CI](https://travis-ci.org/) continuos integration platform. You can download the last succesfully built version from here:
 https://www.cubbyusercontent.com/pl/ci-build.tar.gz/_c1d3e8dd5ed149f5895ad7edba61d221
 
+## Screenshots of the demo application
+From right to left: on Ubuntu 12.04 (64-bit), on Fedora (32-bit), on Windows 8.1 (64-bit)
+
+<img src="http://3.bp.blogspot.com/-DOjSm0dZ3yg/VleCk6myUUI/AAAAAAAAAJc/5AF3rhYcizw/s1600/Immagine.png" width="260">
+<img src="http://1.bp.blogspot.com/-2jZtICa_3p0/VleCkgAKjqI/AAAAAAAAAJU/anCc8yb_A9I/s1600/Immagine2.png" width="260">
+<img src="http://3.bp.blogspot.com/--IrW9OOywhI/VleCkFd0uNI/AAAAAAAAAJQ/JPp4yFzptDA/s1600/Immagine3.png" width="260">
+
 ## Tutorial
 Here is a simple step-by-step guide to set up an IUP-based application using this boilerplate. This assumes you are working on an x86_64 Linux system with the APT package manager available.
 
@@ -59,3 +66,6 @@ Open source MIT license (see the LICENSE file).
 Official site of the IUP library: http://webserver2.tecgraf.puc-rio.br/iup/
 
 The example icon (res/icon.ico) is from https://www.iconfinder.com/iconsets/function_icon_set .
+
+## See also
+Blog post: http://gntheprogrammer.blogspot.com/2015/11/iup-lightweight-and-cross-platform-user.html
