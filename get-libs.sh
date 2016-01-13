@@ -16,7 +16,7 @@ getLibFiles(){
 }
 getLibFiles "3.15/Linux%20Libraries/iup-3.15_Linux32_64_lib.tar.gz/download" linux64
 getLibFiles "3.15/Linux%20Libraries/iup-3.15_Linux32_lib.tar.gz/download" linux32
-getLibFiles "3.15/Windows%20Libraries/Dynamic/iup-3.15_Win32_dllw4_lib.zip/download" win32
+getLibFiles "3.15/Windows%20Libraries/Static/iup-3.15_Win32_mingw4_lib.zip/download" win32
 
 # This will download the IUP tools, including the necessary LEDC compiler for LED files, to the tools/ directory.
 
