@@ -6,7 +6,8 @@ GUIS=./res/gui/*.led
 CC_LINUX=gcc
 CC_WIN=i686-w64-mingw32-gcc
 WINDRES=i686-w64-mingw32-windres
-STRIP=strip
+STRIP_LINUX=strip
+STRIP_WIN=i686-w64-mingw32-strip
 
 CFLAGS= -Os -fdata-sections -ffunction-sections -Wall -Werror -Wl,--gc-sections
 
@@ -35,19 +36,19 @@ win32: dir ledc
 	mkdir -p build/$@
 	$(WINDRES) res/res.rc -O coff -o res/resources.res
 	$(CC_WIN) $(SRC) res/resources.res $(INCS_WIN32) $(LIBS_WIN32) $(CFLAGS) -Wl,-subsystem,windows -o build/$@/$(APPNAME).exe
-	$(STRIP) build/$@/$(APPNAME).exe
+	$(STRIP_WIN) build/$@/$(APPNAME).exe
 
 linux32: dir ledc
 	rm -rf build/$@
 	mkdir -p build/$@
 	$(CC_LINUX) -m32 $(SRC) $(INCS_LINUX32) $(LIBS_LINUX32) $(CFLAGS) -o build/$@/$(APPNAME)
-	$(STRIP) build/$@/$(APPNAME)
+	$(STRIP_LINUX) build/$@/$(APPNAME)
 
 linux64: dir ledc
 	rm -rf build/$@
 	mkdir -p build/$@
 	$(CC_LINUX) $(SRC) $(INCS_LINUX64) $(LIBS_LINUX64) $(CFLAGS) -o build/$@/$(APPNAME)
-	$(STRIP) build/$@/$(APPNAME)
+	$(STRIP_LINUX) build/$@/$(APPNAME)
 
 clean:
 	rm -rf build/
