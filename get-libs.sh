@@ -24,6 +24,6 @@ mkdir -p tools
 echo "Downloading IUP tools..."
 wget -O tools/iuptools.tar.gz http://sourceforge.net/projects/iup/files/3.15/Tools%20Executables/iup-3.15_Linux319_64_bin.tar.gz
 echo "Extrcting ledc..."
-tar -C tools -zxvf tools/iuptools.tar.gz ledc
+tar -C tools -zxvf tools/iuptools.tar.gz ledc iupview
 rm tools/iuptools.tar.gz
 echo "Done."

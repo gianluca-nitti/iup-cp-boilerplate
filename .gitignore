@@ -1,6 +1,7 @@
 build/
 lib/
 tools/
-gui_compiled.c
 res/resources.res
+res/gui_compiled.c
+res/icon_linux.c
 *~

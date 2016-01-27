@@ -1,2 +1,2 @@
-5 ICON "./icon.ico"
+MAINICON ICON "./icon.ico"
 1 24 "app.manifest"

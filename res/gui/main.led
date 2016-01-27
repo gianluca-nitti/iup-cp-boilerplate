@@ -1,4 +1,4 @@
-mainDlg = dialog[TITLE="IUP example", ALIGNMENT=ACENTER, MARGIN=10x10](
+mainDlg = dialog[TITLE="IUP example", ALIGNMENT=ACENTER, MARGIN=10x10, ICON=MAINICON](
 	hbox[ALIGNMENT=ACENTER](
 		fill(),
 		vbox[ALIGNMENT=ACENTER](
