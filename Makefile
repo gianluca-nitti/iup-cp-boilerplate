@@ -29,28 +29,30 @@ dir:
 	mkdir -p build
 
 ledc:
-	./tools/ledc -o res/gui_compiled.c $(GUIS)
-	./tools/iupview -o res/icon_linux.c res/icon.ico
-	patch res/icon_linux.c res/iupview.patch
+	./tools/ledc -o res/gui_compiled_win.c $(GUIS)
+	./tools/im_copy res/icon.ico res/icon.led LED
+	patch res/icon.led res/led_patcher.patch
+	./tools/ledc -o res/gui_compiled_linux.c $(GUIS) res/icon.led
 
 win32: dir ledc
 	rm -rf build/$@
 	mkdir -p build/$@
-	$(WINDRES) res/res.rc -O coff -o res/resources.res
-	$(CC_WIN) res/gui_compiled.c res/resources.res $(SRC) $(INCS_WIN32) $(LIBS_WIN32) $(CFLAGS) -Wl,-subsystem,windows -o build/$@/$(APPNAME).exe
+	$(WINDRES) res/res.rc -O coff -o res/resources.obj
+	$(CC_WIN) res/gui_compiled_win.c res/resources.obj $(SRC) $(INCS_WIN32) $(LIBS_WIN32) $(CFLAGS) -Wl,-subsystem,windows -o build/$@/$(APPNAME).exe
 	$(STRIP_WIN) build/$@/$(APPNAME).exe
 
 linux32: dir ledc
 	rm -rf build/$@
 	mkdir -p build/$@
-	$(CC_LINUX) -DLINUX -m32 res/gui_compiled.c res/icon_linux.c $(SRC) $(INCS_LINUX32) $(LIBS_LINUX32) $(CFLAGS) -o build/$@/$(APPNAME)
+	$(CC_LINUX) -m32 res/gui_compiled_linux.c $(SRC) $(INCS_LINUX32) $(LIBS_LINUX32) $(CFLAGS) -o build/$@/$(APPNAME)
 	$(STRIP_LINUX) build/$@/$(APPNAME)
 
 linux64: dir ledc
 	rm -rf build/$@
 	mkdir -p build/$@
-	$(CC_LINUX) -DLINUX res/gui_compiled.c res/icon_linux.c $(SRC) $(INCS_LINUX64) $(LIBS_LINUX64) $(CFLAGS) -o build/$@/$(APPNAME)
+	$(CC_LINUX) res/gui_compiled_linux.c $(SRC) $(INCS_LINUX64) $(LIBS_LINUX64) $(CFLAGS) -o build/$@/$(APPNAME)
 	$(STRIP_LINUX) build/$@/$(APPNAME)
 
 clean:
 	rm -rf build/
+	rm -f res/gui_compiled_win.c res/gui_compiled_linux.c res/icon.led

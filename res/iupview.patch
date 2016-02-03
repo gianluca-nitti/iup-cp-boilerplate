@@ -1,6 +1,0 @@
-1c1,3
-< static Ihandle* load_image_icon_ico(void)
----
-> #include <iup.h>
-> 
-> Ihandle* load_image_icon_ico(void)

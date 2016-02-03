@@ -1,7 +1,10 @@
 build/
 lib/
-tools/
-res/resources.res
-res/gui_compiled.c
-res/icon_linux.c
+tools/ledc
+tools/im_copy
+tools/im/
+res/resources.obj
+res/gui_compiled_win.c
+res/gui_compiled_linux.c
+res/icon.led
 *~
