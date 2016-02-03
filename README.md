@@ -4,6 +4,8 @@
 
 (from http://webserver2.tecgraf.puc-rio.br/iup/)
 
+IUP and IM are copyrighted by [Tecgraf/PUC-Rio](http://www.tecgraf.puc-rio.br/en/index.html) and licensed under the terms of the open source MIT license.
+
 This repository is meant to be an (unofficial) starter kit for cross-platform GUI applications based on the IUP library, using the C language for programming and IUP's LED language for user interface definition.
 
 Out-of-the-box it allows you to build lightweight applications for Windows (32 bits) and Linux (32 and 64 bits) using a 64 bit Linux machine (at the moment, the installation of the necessary development packages is automated for Debian based distributions using the APT package manager, and has been tested on Ubuntu). The shell scripts *get-packages.sh* and *get.tools.sh* will set up your development environment by installing the required packages (Mingw-w64 Linux to Windows cross compiler, GTK developement libraries,...) and downloading the IUP libraries and tools (actually the LED language compiler); the Makefile will compile to the targets you pass to ```make``` from the command line, which are linux64, linux32 and win32.
