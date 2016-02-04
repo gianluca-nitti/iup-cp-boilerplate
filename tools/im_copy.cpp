@@ -1,7 +1,6 @@
 //Original version: http://webserver2.tecgraf.puc-rio.br/im/examples/im_copy.cpp
 
-
-/* IM 3 sample that copies an image from one file to another. 
+/* IM 3 sample that copies an image from one file to another.
    It is good to test the file formats read and write.
    If the destiny does not supports the input image it aborts and returns an error.
 
@@ -14,11 +13,11 @@
 
 #include <im.h>
 #include <im_util.h>
-#include <im_format_avi.h>
-#include <im_format_wmv.h>
+#include <im_convert.h>
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 
 void PrintError(int error)
@@ -56,13 +55,14 @@ int main(int argc, char* argv[])
     return 0;
   }
 
-  void* data = NULL;
+  imImage* iimg = NULL;
+  imImage* oimg = NULL;
   imFile* ifile = NULL;
   imFile* ofile = NULL;
 
   int error;
   ifile = imFileOpen(argv[1], &error);
-  if (!ifile) 
+  if (!ifile)
     goto man_error;
 
   char format[10];
@@ -81,63 +81,32 @@ int main(int argc, char* argv[])
 
   for (int i = 0; i < image_count; i++)
   {
-    int size, max_size = 0;
-    int width, height, color_mode, data_type;
-    error = imFileReadImageInfo(ifile, i, &width, &height, &color_mode, &data_type);
+    iimg = imFileLoadImage(ifile, i, &error);
     if (error != IM_ERR_NONE)
       goto man_error;
-
-    size = imImageDataSize(width, height, color_mode, data_type);
-
-    if (size > max_size)
-    {
-      data = realloc(data, size);
-      max_size = size;
-    }
-
-    error = imFileReadImageData(ifile, data, 0, -1);
+    if(argc > 3 && strcmp(argv[3], "LED") == 0){
+      oimg = imImageCreateBased(iimg, -1, -1, IM_MAP, -1);
+      imConvertColorSpace(iimg, oimg);
+    }else
+      oimg = iimg;
+    error = imFileSaveImage(ofile, oimg);
     if (error != IM_ERR_NONE)
       goto man_error;
-    
-    char* attrib_list[50];
-    int attrib_list_count;
-    imFileGetAttributeList(ifile, attrib_list, &attrib_list_count);
-
-    for (int a = 0; a < attrib_list_count; a++)
-    {
-      int attrib_data_type, attrib_count;
-      const void* attrib_data = imFileGetAttribute(ifile, attrib_list[a], &attrib_data_type, &attrib_count);
-      imFileSetAttribute(ofile, attrib_list[a], attrib_data_type, attrib_count, attrib_data);
-    }
-
-    if (imColorModeSpace(color_mode) == IM_MAP)
-    {
-      long palette[256];
-      int palette_count;
-      imFileGetPalette(ifile, palette, &palette_count);
-      imFileSetPalette(ifile, palette, palette_count);
-    }
-
-    error = imFileWriteImageInfo(ofile, width, height, color_mode, data_type);
-    if (error != IM_ERR_NONE)
-      goto man_error;
-
-    error = imFileWriteImageData(ofile, data);
-    if (error != IM_ERR_NONE)
-      goto man_error;
-
   }
 
-  free(data);
-  imFileClose(ifile);  
-  imFileClose(ofile);  
+  free(iimg);
+  free(oimg);
+  imFileClose(ifile);
+  imFileClose(ofile);
 
   return 0;
 
 man_error:
   PrintError(error);
-  if (data) free(data);
+  if (iimg) free(iimg);
+  if (oimg) free(oimg);
   if (ifile) imFileClose(ifile);
   if (ofile) imFileClose(ofile);
   return 1;
 }
+
